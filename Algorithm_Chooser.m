@@ -13,6 +13,10 @@ disp("Start procedure")
 
 keepRunning = true;
 
+% Global Variables
+global mu
+mu = 3.986E5 % km^3 / s^2
+
 while keepRunning 
 
     Algo = input("What algorithm number do you want to run: ");
@@ -35,13 +39,14 @@ while keepRunning
         v0_vec_K = input("v0_vec_K = ");
         v0_vec = [v0_vec_I v0_vec_J v0_vec_K];
 
-        deltaT = input("What is the delta t? ");
+        delta_t = input("What is the delta t? ");
 
-        [r_vec_at_t , v_vec_at_t] = Algorithm_3_4(r0_vec, v0_vec, deltaT)
+        [r_vec_at_t , v_vec_at_t, traj_shape] = Algorithm_3_4(r0_vec, v0_vec, delta_t)
 
         disp("Algorithm 3.4 results:")
         fprintf('Position Vector: [%g, %g, %g]\n', r_vec_at_t);
         fprintf('Velocity Vector: [%g, %g, %g]\n', v_vec_at_t);
+        fprintf('Trajectory Shape: ' + traj_shape);
 
 
         
