@@ -58,8 +58,11 @@ while abs(ratio) > errorTol && n <= nMax
     dFdx = ro*vro/sqrt(mu) * x * (1 - a*x^2*S) + (1 - a*ro) * x^2 * C + ro;
 
     ratio = F / dFdx;
-    X = x - ratio;
+    x = x - ratio;
 end
+
+X = x
+
 
 % Deliver a value for x, but report that nMax was reached
 if n > nMax

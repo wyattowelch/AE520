@@ -27,16 +27,16 @@ end
 [X, C, S] = Algorithm_3_3(r0_mag, v_r_0, alpha, delta_t)
 
 % calculate Lagrange coefficients 
-f = 1 - ((X^2) / r0_mag) * C * alpha * (X^2);
-g = delta_t - (1 / sqrt(mu)) * (X^3) * S * alpha * (X^2);
+f = 1 - (X^2 / r0_mag) * C;
+g = delta_t - (1/sqrt(mu)) * X^3 * S;
 
 % Calculate r_vec and r_mag
 r_vec = f * r0_vec + g * v0_vec;
 r_mag = norm(r_vec);
 
 % Calculate Lagrance coefficient derivatives
-f_dot = (sqrt(mu) / (r_mag * r0_mag)) * (alpha * (X^3) * S * alpha * (X^2) - X);
-g_dot = 1 - ((X^2) / r_mag) * C * alpha * (X^2);
+f_dot = (sqrt(mu) / (r_mag * r0_mag)) * (alpha * X^3 * S - X);
+g_dot = 1 - (X^2 / r_mag) * C;
 
 % Calculate v_vec
 v_vec = f_dot * r0_vec + g_dot * v0_vec;

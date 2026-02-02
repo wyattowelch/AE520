@@ -14,7 +14,7 @@ keepRunning = true;
 % Global Variables
 global mu
 
-mu = 3.986E5 % km^3 / s^2
+mu = 3.986E5; % km^3 / s^2
 
 
 disp("Start procedure")
@@ -97,6 +97,8 @@ while keepRunning
 %{
 % If we want to add function to check if a variable already exists, use
 % this template block when setting initial values:
+% Yes, its AI, dont judge me i didnt wanna build that whole function for a
+tiny detail
 
 
         
