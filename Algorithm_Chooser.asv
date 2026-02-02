@@ -42,20 +42,80 @@ while keepRunning
 
         delta_t = input("What is the delta t? ");
 
-        [r_vec_at_t , v_vec_at_t, traj_shape] = Algorithm_3_4(r0_vec, v0_vec, delta_t)
+        [r_vec_at_t , v_vec_at_t, traj_shape] = Algorithm_3_4(r0_vec, v0_vec, delta_t);
 
         disp("Algorithm 3.4 results:")
         fprintf('Position Vector: [%g, %g, %g]\n', r_vec_at_t);
         fprintf('Velocity Vector: [%g, %g, %g]\n', v_vec_at_t);
-        fprintf('Trajectory Shape: ' + traj_shape);
-
-
+        fprintf('Trajectory Shape: ' + traj_shape + "\n");
         
+        restart = input("Run another algorithm? (1/0 for Y/N) \n")
+        if restart == 1
+        elseif restart == 0
+            keepRunning = false;
+        end
 
+    elseif Algo == 4.1
+        disp("Algo 4.1 selected. (See page 187)")
+        
+        r_vec_I = input("r_vec_I = ");
+        r_vec_J = input("r_vec_J = ");
+        r_vec_K = input("r_vec_K = ");
+        r_vec = [r_vec_I, r_vec_J, r_vec_K];
 
-        keepRunning = false;
-    
+        [delta, alpha] = Algorithm_4_1(r)
+
+        restart = input("Run another algorithm? (1/0 for Y/N) \n")
+        if restart == 1
+        elseif restart == 0
+            keepRunning = false;
+        end
     else
         disp("Unrecognized Algo")
     end
+
+
+
+
+
+%{
+% If we want to add function to check if a variable already exists, use
+% this template block when setting initial values:
+
+
+        
+if exist(varName, 'var')
+    % Get value using eval to handle the string name
+    val = eval(varName);
+    
+    % Display current value/matrix
+    fprintf('Currently, %s =\n', varName);
+    disp(val);
+    
+    change = input('Do you want to change this? (1/0 for Y/N): ');
+    
+    if change == 1
+        if ismatrix(val) && numel(val) > 1
+            % Loop to fill in each matrix element
+            [rows, cols] = size(val);
+            fprintf('Updating %dx%d matrix:\n', rows, cols);
+            for r = 1:rows
+                for c = 1:cols
+                    prompt = sprintf('Enter value for [%d,%d]: ', r, c);
+                    val(r,c) = input(prompt);
+                end
+            end
+        else
+            % Single value update
+            val = input(['Enter new value for ', varName, ': ']);
+        end
+        
+        % Assign updated value back to the variable name
+        assignin('base', varName, val);
+        disp('Variable updated successfully.');
+    end
+end
+
+%}
+
 end
