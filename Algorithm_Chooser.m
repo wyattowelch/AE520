@@ -9,14 +9,15 @@
 
 % Maybe it will suggest previous variables, and you can replace if needed?
 
-disp("Start procedure")
-
 keepRunning = true;
 
 % Global Variables
 global mu
+
 mu = 3.986E5 % km^3 / s^2
 
+
+disp("Start procedure")
 while keepRunning 
 
     Algo = input("What algorithm number do you want to run: ");

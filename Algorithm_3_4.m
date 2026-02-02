@@ -1,5 +1,6 @@
 function [r_vec, v_vec, trajectory_shape] = Algorithm_3_4(r0_vec, v0_vec, delta_t)
-% ALGORITHM_3_4 - Given r0_vec, v0_vec, and delta_t, find r_vec and v_vec
+% ALGORITHM_3_4 - Given r0_vec, v0_vec, and delta_t, 
+% find r_vec and v_vec
 
 global mu
 
@@ -22,11 +23,8 @@ else
     trajectory_shape = "parabola";
 end
 
-% Use algo 3.3 to get universal anomaly X
-X = Algorithm_3_3(r0_mag, v_r_0, alpha, delta_t)
-
-% Obtain Stumpff functions C and S
-
+% Use algo 3.3 to get universal anomaly X, Stumpffs C and S
+[X, C, S] = Algorithm_3_3(r0_mag, v_r_0, alpha, delta_t)
 
 % calculate Lagrange coefficients 
 f = 1 - ((X^2) / r0_mag) * C * alpha * (X^2);
