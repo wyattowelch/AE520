@@ -24,7 +24,10 @@ else
 end
 
 % Use algo 3.3 to get universal anomaly X, Stumpffs C and S
-[X, C, S] = Algorithm_3_3(r0_mag, v_r_0, alpha, delta_t)
+[X, C, S] = Algorithm_3_3(r0_mag, v_r_0, alpha, delta_t);
+    fprintf('X = %g\n', X);
+    fprintf('C = %g\n', C);
+    fprintf('S = %g\n', S);
 
 % calculate Lagrange coefficients 
 f = 1 - (X^2 / r0_mag) * C;

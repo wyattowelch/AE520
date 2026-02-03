@@ -9,6 +9,25 @@
 
 % Maybe it will suggest previous variables, and you can replace if needed?
 
+
+%{
+
+Current Algorithms:
+
+    Algo 3.3: 
+        Inputs: dt, r0, vr0, 1/a
+        Outputs: X, C, S
+
+    Algo 3.4:
+        Inputs:r0_vec, v0_vec, dt
+        Outputs: r_vec, v_vec
+
+    Algo 4.1:
+        Inputs: r_vec
+        Outputs: delta, alpha
+
+%}
+
 keepRunning = true;
 
 % Global Variables
@@ -25,6 +44,7 @@ while keepRunning
     if Algo == 0
         disp("Procedure stopped.")
         keepRunning = false;
+        disp("Procedure Ended")
         return;
     
     elseif Algo == 3.4
@@ -44,6 +64,7 @@ while keepRunning
 
         delta_t = input("What is the delta t? ");
 
+        disp("Starting Algo")
         [r_vec_at_t , v_vec_at_t, traj_shape] = Algorithm_3_4(r0_vec, v0_vec, delta_t);
 
             % Results
@@ -55,10 +76,11 @@ while keepRunning
         
             % Closing
 
-        restart = input("Run another algorithm? (1/0 for Y/N) \n")
+        restart = input("Run another algorithm? (1/0 for Y/N) \n");
         if restart == 1
         elseif restart == 0
             keepRunning = false;
+            disp("Procedure Ended")
         end
 
     elseif Algo == 4.1
@@ -70,6 +92,7 @@ while keepRunning
         r_vec_K = input("r_vec_K = ");
         r_vec = [r_vec_I, r_vec_J, r_vec_K];
 
+        disp("Starting Algo")        
         [delta, alpha] = Algorithm_4_1(r_vec);
 
             % Results
@@ -81,10 +104,11 @@ while keepRunning
         
             % Closing
 
-        restart = input("Run another algorithm? (1/0 for Y/N) \n")
+        restart = input("Run another algorithm? (1/0 for Y/N) \n");
         if restart == 1
         elseif restart == 0
             keepRunning = false;
+            disp("Procedure Ended")
         end
     else
         disp("Unrecognized Algo")

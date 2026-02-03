@@ -61,7 +61,7 @@ while abs(ratio) > errorTol && n <= nMax
     x = x - ratio;
 end
 
-X = x
+X = x;
 
 
 % Deliver a value for x, but report that nMax was reached
