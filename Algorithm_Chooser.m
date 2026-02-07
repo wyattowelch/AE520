@@ -26,6 +26,14 @@ Current Algorithms:
         Inputs: r_vec
         Outputs: delta, alpha
 
+    Algo 4.3:
+        Inputs: Q
+        Outputs: alpha, beta, gamma
+
+    Algo 4.4:
+        Inputs: Q
+        Outputs: yaw, pitch, roll
+
 %}
 
 keepRunning = true;
@@ -110,6 +118,40 @@ while keepRunning
             keepRunning = false;
             disp("Procedure Ended")
         end
+    elseif Algo == 4.3
+        disp("Algo 4.3 selected. (See page 205)")
+            % Initialize
+
+        Q_11 = input("Q_11 = ");
+        Q_12 = input("Q_12 = ");
+        Q_13 = input("Q_13 = ");
+        Q_21 = input("Q_11 = ");
+        Q_22 = input("Q_12 = ");
+        Q_23 = input("Q_13 = ");
+        Q_31 = input("Q_11 = ");
+        Q_32 = input("Q_12 = ");
+        Q_33 = input("Q_13 = ");
+        Q = [Q_11 Q_12 Q_13, Q_21 Q_22 Q_23, Q_31 Q_32 Q_33];
+
+        disp("Starting Algo")        
+        [alpha, beta, gamma] = Algorithm_4_3(Q);
+
+            % Results
+
+        disp("Algorithm 4.3 results:")
+        fprintf('Alpha (deg): %g\n', alpha);
+        fprintf('Beta (deg): %g\n', beta);
+        fprintf('Gamma (deg): %g\n', gamma);
+
+            % Closing
+
+        restart = input("Run another algorithm? (1/0 for Y/N) \n");
+        if restart == 1
+        elseif restart == 0
+            keepRunning = false;
+            disp("Procedure Ended")
+        end
+        
     else
         disp("Unrecognized Algo")
     end
@@ -161,3 +203,4 @@ end
 %}
 
 end
+
