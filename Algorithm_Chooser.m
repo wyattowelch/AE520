@@ -152,6 +152,40 @@ while keepRunning
             disp("Procedure Ended")
         end
         
+    elseif Algo == 4.4
+        disp("Algo 4.4 selected. (See page 207)")
+            % Initialize
+
+        Q_11 = input("Q_11 = ");
+        Q_12 = input("Q_12 = ");
+        Q_13 = input("Q_13 = ");
+        Q_21 = input("Q_11 = ");
+        Q_22 = input("Q_12 = ");
+        Q_23 = input("Q_13 = ");
+        Q_31 = input("Q_11 = ");
+        Q_32 = input("Q_12 = ");
+        Q_33 = input("Q_13 = ");
+        Q = [Q_11 Q_12 Q_13, Q_21 Q_22 Q_23, Q_31 Q_32 Q_33];
+
+        disp("Starting Algo")        
+        [yaw, pitch, roll] = Algorithm_4_4(Q);
+
+            % Results
+
+        disp("Algorithm 4.4 results:")
+        fprintf('Yaw (deg): %g\n', yaw);
+        fprintf('Pitch (deg): %g\n', pitch);
+        fprintf('Roll (deg): %g\n', roll);
+
+            % Closing
+
+        restart = input("Run another algorithm? (1/0 for Y/N) \n");
+        if restart == 1
+        elseif restart == 0
+            keepRunning = false;
+            disp("Procedure Ended")
+        end
+        
     else
         disp("Unrecognized Algo")
     end
@@ -203,4 +237,5 @@ end
 %}
 
 end
+
 
