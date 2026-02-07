@@ -1,5 +1,5 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function [alpha beta gamma] = dcm_to_euler(Q)
+function [alpha beta gamma] = Algorithm_4_3(Q)
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 %{
     This function finds the angles of the classical Euler sequence
