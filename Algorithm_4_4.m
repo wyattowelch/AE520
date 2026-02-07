@@ -1,4 +1,4 @@
-function [yaw pitch roll] = dcm_to_ypr(Q)
+function [yaw pitch roll] = Algorithm_4_4(Q)
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 %
 % This function finds the angles of the yaw-pitch-roll sequence
