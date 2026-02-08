@@ -39,7 +39,7 @@ mu = 3.986E5; % km^3 / s^2
 disp("Start procedure")
 while keepRunning 
 
-    Algo = input("What algorithm number do you want to run: ");
+        Algo = input("What algorithm number do you want to run: ");
 
     if Algo == 0
         disp("Procedure stopped.")
@@ -110,10 +110,110 @@ while keepRunning
             keepRunning = false;
             disp("Procedure Ended")
         end
+
+
+    elseif Algo == 4.3
+        disp("Algo 4.3 selected. (See page 205)")
+
+            % Initialize
+
+        skipSetup = 0;
+
+        if exist('Q11', 'var')
+            fprintf(['Q Matrix: \n' ...
+                '[%g, %g, %g\n' ...
+                '%g, %g, %g\n' ...
+                '%g, %g, %g]\n'], QMatrix);
+
+            isCorrect = input("Is this the correct Q Matrix? (1/0)\n");
+
+            if isCorrect == 1
+                skipSetup = 1;
+            else
+                skipSetup = 0;
+            end
+        end
+        
+        checkMatrix = true;
+        while checkMatrix == true
+
+            if skipSetup == 0
+                disp("Insert 3x3 Q matrix, left to right, top to bottom\n" + ...
+                    "      Q11  Q12  Q13\n" + ...
+                    "Q  =  Q21  Q22  Q23\n" + ...
+                    "      Q31  Q32  Q33")
+                
+                Q11 = input("Q11 = ");
+                Q12 = input("Q12 = ");
+                Q13 = input("Q13 = ");
+        
+                Q21 = input("Q21 = ");
+                Q22 = input("Q22 = ");
+                Q23 = input("Q23 = ");
+        
+                Q31 = input("Q31 = ");
+                Q32 = input("Q32 = ");
+                Q33 = input("Q33 = ");
+        
+                QMatrix = [Q11, Q12, Q13;
+                           Q21, Q22, Q23;
+                           Q31, Q32, Q33];
+
+                disp(QMatrix)
+                rewriteMatrix = input("Rewrite Matrix? (1/0)\n");
+                if rewriteMatrix == 1
+                    continue
+                else
+                    checkMatrix = false;
+                end
+            else
+                checkMatrix = false;
+            end
+        end
+
+        [alpha, beta, gamma] = Algorithm_4_3(QMatrix)
+        
+            % Results
+
+        disp("Algorithm 4.3 results:")
+        
+            % Closing
+
+        restart = input("Run another algorithm? (1/0 for Y/N) \n");
+        if restart == 1
+        elseif restart == 0
+            keepRunning = false;
+            disp("Procedure Ended")
+        end        
+
     else
         disp("Unrecognized Algo")
     end
 
+
+%{
+Template
+
+
+    elseif Algo == x.x
+        disp("Algo x.x selected. (See page xxx)")
+
+            % Initialize
+        
+            % Results
+
+        disp("Algorithm x.x results:")
+        
+            % Closing
+            
+        restart = input("Run another algorithm? (1/0 for Y/N) \n");
+        if restart == 1
+        elseif restart == 0
+            keepRunning = false;
+            disp("Procedure Ended")
+        end        
+
+%}
 
 
 
