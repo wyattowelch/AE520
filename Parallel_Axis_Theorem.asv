@@ -1,0 +1,16 @@
+m = [10 10 8 8 12 12];
+x = [1 -1 4 -2 3 -3];
+y = [1 -1 -4 2 3 -3];
+z = [1 -1 4 -2 -3 3];
+
+m_sum = sum(m);
+x_G = sum(m .* x) / m_sum;
+y_G = sum(m .* y) / m_sum;
+z_G = sum(m .* z) / m_sum;
+
+n = length(m);
+for i = 1:n
+    I_G = [m(i) * (y(i)^2 + z(i)^2),  -m(i) * x(i) * y(i),  -m(i) * x(i) * z(i);
+           -m(i) * x(i) * y(i),  m(i) * (x(i)^2 + z(i)^2),  
+
+
